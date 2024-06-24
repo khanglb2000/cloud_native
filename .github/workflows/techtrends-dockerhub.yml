@@ -1,0 +1,29 @@
+name: TechTrends - Package with Docker
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-push:
+    name: Build and Push Docker Image to DockerHub
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Log in to DockerHub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build and push Docker image
+        env:
+          DOCKER_BUILDKIT: 1
+        run: |
+          docker build -t techtrends .
+          docker tag techtrends:latest ${{ secrets.DOCKERHUB_USERNAME }}/techtrends:latest
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/techtrends:latest
