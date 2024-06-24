@@ -2,7 +2,7 @@
 
 # TODO: insert the docker build command
 
-docker build -t techtrends -f Dockerfile ../../project/techtrends
+docker build -t techtrends -f Dockerfile ./techtrends
 
 ## Docker commands used to run the application
 
