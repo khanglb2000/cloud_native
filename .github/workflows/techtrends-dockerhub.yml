@@ -27,9 +27,10 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build and push Docker image
-        env:
-          DOCKER_BUILDKIT: 1
-        run: |
-          docker build -t techtrends ../../
-          docker tag techtrends:latest ${{ secrets.DOCKERHUB_USERNAME }}/techtrends:latest
-          docker push ${{ secrets.DOCKERHUB_USERNAME }}/techtrends:latest
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: ./Dockerfile
+          platforms: linux/amd64
+          push: true
+          tags: pixelpotato/python-helloworld:latest
