@@ -24,6 +24,6 @@ jobs:
         env:
           DOCKER_BUILDKIT: 1
         run: |
-          docker build -t techtrends .
+          docker build -t techtrends ../../project/techtrends
           docker tag techtrends:latest ${{ secrets.DOCKERHUB_USERNAME }}/techtrends:latest
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/techtrends:latest
