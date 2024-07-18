@@ -30,4 +30,5 @@ Vagrant.configure("2") do |config|
   
   # Shared folder configuration
   config.vm.synced_folder "D:/Workspace/udacity/cloud-native-app-architecture/nd064_course_1/project/kubernetes", "/home/vagrant/kubernetes"
+  config.vm.synced_folder "D:/Workspace/udacity/cloud-native-app-architecture/nd064_course_1/project/helm", "/home/vagrant/helm"
 end
