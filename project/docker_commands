@@ -2,22 +2,6 @@
 
 # TODO: insert the docker build command
 
-## Docker commands used to run the application
-
-# TODO: insert the docker run command
-
-## Docker commands used to get the application logs
-
-# TODO: insert the docker logs command
-
-## Logs from the container running the TechTrends application
-
-# TODO: paste logs from the Docker container
-
-## Docker commands used to build the application
-
-# TODO: insert the docker build command
-
 docker build -t techtrends -f Dockerfile ./
 
 ## Docker commands used to run the application
@@ -35,3 +19,5 @@ docker logs f0e10df6cae5
 ## Logs from the container running the TechTrends application
 
 # TODO: paste logs from the Docker container
+
+docker logs $(docker ps -q --filter "name=techtrends")
